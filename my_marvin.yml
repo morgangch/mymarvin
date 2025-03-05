@@ -1,0 +1,17 @@
+jenkins:
+  authorizationStrategy: loggedInUsersCanDoAnything
+  systemMessage: "Welcome to the Chocolatine-Powered Marvin Jenkins Instance."
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "jigglypuff"
+          name: "Jigglypuff"
+          password: "test"
+
+unclassified:
+  location:
+    url: "http://localhost:8080"
+
+jobs:
+  - file: /var/jenkins_home/job_dsl.groovy

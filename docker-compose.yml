@@ -1,0 +1,49 @@
+version: '3.8'
+
+networks:
+  jenkins:
+    driver: bridge
+
+volumes:
+  jenkins-docker-certs:
+  jenkins-data:
+
+services:
+  jenkins-docker:
+    image: docker:dind
+    container_name: jenkins-docker
+    privileged: true
+    restart: always
+    networks:
+      - jenkins
+    environment:
+      DOCKER_TLS_CERTDIR: "/certs"
+    volumes:
+      - jenkins-docker-certs:/certs/client
+      - jenkins-data:/var/jenkins_home
+    ports:
+      - "2376:2376"
+    command: --storage-driver overlay2
+
+  jenkins-blueocean:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Assure-toi que ton Dockerfile installe bien CASC et Job DSL
+    container_name: jenkins-blueocean
+    restart: on-failure
+    networks:
+      - jenkins
+    environment:
+      DOCKER_HOST: "tcp://docker:2376"
+      DOCKER_CERT_PATH: "/certs/client"
+      DOCKER_TLS_VERIFY: "1"
+      CASC_JENKINS_CONFIG: "/var/jenkins_home/casc_configs"
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
+    volumes:
+      - jenkins-data:/var/jenkins_home
+      - jenkins-docker-certs:/certs/client:ro
+      - ./my_marvin.yml:/var/jenkins_home/casc_configs/my_marvin.yml:ro
+      - ./job_dsl.groovy:/var/jenkins_home/job_dsl.groovy:ro
+    ports:
+      - "8080:8080"
+      - "50000:50000"
