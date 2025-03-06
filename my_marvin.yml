@@ -16,9 +16,6 @@ jenkins:
         - id: "nasso"
           name: "Nassim"
           password: "${USER_NASSO_PASSWORD}"
-        - id: "jigglypuff"
-          name: "Jigglypuff"
-          password: "test"
 
 unclassified:
   location:
