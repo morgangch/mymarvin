@@ -8,6 +8,7 @@ on:
     paths-ignore:
       - '**Dockerfile**'
       - '**docker-compose**'
+      - '**.env**'
   pull_request:
     branches-ignore:
       - 'ga-ignore-*'
