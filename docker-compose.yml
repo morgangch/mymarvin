@@ -24,7 +24,7 @@ services:
     ports:
       - "2376:2376"
     command: --storage-driver overlay2
-
+    
   jenkins-blueocean:
     build:
       context: .
@@ -47,3 +47,5 @@ services:
     ports:
       - "8080:8080"
       - "50000:50000"
+    env_file:
+      - .env
