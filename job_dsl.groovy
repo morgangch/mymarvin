@@ -1,18 +1,16 @@
-pipelineJob('Disk Space Check') {
-    definition {
-        cps {
-            script("""
-                pipeline {
-                    agent any
-                    stages {
-                        stage('Check Disk Space') {
-                            steps {
-                                sh 'df'
-                            }
-                        }
-                    }
-                }
-            """.stripIndent())
-        }
+job('Disk Space Check') {
+    steps {
+        shell('df -h')
+    }
+}
+
+job('A Daily Dose of Satisfaction') {
+    parameters {
+        stringParam('NAME', '', 'Enter your name')
+    }
+    steps {
+        shell('echo "Hello $NAME"')
+        shell('date')
+        shell('echo "This is your DDoS number $BUILD_NUMBER"')
     }
 }
