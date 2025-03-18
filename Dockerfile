@@ -17,4 +17,11 @@ RUN jenkins-plugin-cli --plugins \
   "blueocean:latest" \
   "docker-workflow:latest" \
   "configuration-as-code:latest" \
-  "job-dsl:latest"
+  "job-dsl:latest" \
+  "role-strategy:latest"  \
+  "cloudbees-folder:latest" \
+  "credentials:latest" \
+  "instance-identity:latest" \
+  "script-security:latest" \
+  "structs:latest" \
+  "ws-cleanup:latest"
