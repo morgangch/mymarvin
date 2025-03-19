@@ -15,12 +15,6 @@ jenkins:
             permissions:
               - "Overall/Read"
               - "Job/Build"
-              - "Job/Cancel"
-              - "Job/Configure"
-              - "Job/Create"
-              - "Job/Delete"
-              - "Job/Discover"
-              - "Job/Read"
               - "Job/Workspace"
             entries:
               - user: "i_dont_know"
@@ -29,21 +23,18 @@ jenkins:
             permissions:
               - "Overall/Read"
               - "Job/Build"
+              - "Job/Workspace"
               - "Job/Cancel"
               - "Job/Configure"
               - "Job/Create"
               - "Job/Delete"
-              - "Job/Discover"
-              - "Job/Read"
               - "Job/Move"
-              - "Job/Workspace"
             entries:
               - user: "vaugie_g"
           - name: "assist"
             description: "Assistant"
             permissions:
               - "Overall/Read"
-              - "Job/Read"
               - "Job/Discover"
               - "Job/Workspace"
             entries:
