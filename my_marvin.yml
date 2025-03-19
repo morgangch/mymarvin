@@ -14,6 +14,7 @@ jenkins:
             description: "Pedagogical team member"
             permissions:
               - "Overall/Read"
+              - "Job/Read"
               - "Job/Build"
               - "Job/Workspace"
             entries:
@@ -22,20 +23,21 @@ jenkins:
             description: "Group Obsessively Researching Innovation Linked to Learning and Accomplishment"
             permissions:
               - "Overall/Read"
+              - "Job/Read"
               - "Job/Build"
               - "Job/Workspace"
-              - "Job/Cancel"
-              - "Job/Configure"
-              - "Job/Create"
               - "Job/Delete"
+              - "Job/Configure"
+              - "Job/Cancel"
               - "Job/Move"
+              - "Job/Create"
             entries:
               - user: "vaugie_g"
           - name: "assist"
             description: "Assistant"
             permissions:
               - "Overall/Read"
-              - "Job/Discover"
+              - "Job/Read"
               - "Job/Workspace"
             entries:
               - user: "nasso"
